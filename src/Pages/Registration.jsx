@@ -23,7 +23,7 @@ export default function Registration(){
         <label>Name</label>
         <input type="text"
          name="name"
-         pattern="^[a-zA-Zа-яА-Я]+$"
+        //  pattern="^[a-zA-Zа-яА-Я]+$"
          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
          required
         />
@@ -32,7 +32,7 @@ export default function Registration(){
         <label>Email</label>
         <input type="text"
          name="email"
-         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
          title="Email must contain @"
          required
          />
@@ -40,7 +40,7 @@ export default function Registration(){
         <label>Password</label>
         <input type='text'
          name="password"
-         pattern="pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"       
+        //  pattern="pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"       
          required
          />
          <button type="submit">Sign In</button>

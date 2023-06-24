@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { logIn } from "redux/auth/authOperations";
-export default function Registration(){
+
+export default function Login(){
     const dispatch = useDispatch();
 
     const handleSubmit = (e)=>{
@@ -17,7 +18,7 @@ export default function Registration(){
 
     return(
         <form onSubmit={handleSubmit}>
-        <h1>Registration</h1>
+        <h1>Log In</h1>
          
 
         <label>Email</label>
@@ -35,7 +36,7 @@ export default function Registration(){
          required
          />
 
-        <button type="submit">Sign In</button>
+        <button type="submit">Log In</button>
         </form>
     )
 }

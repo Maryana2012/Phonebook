@@ -6,13 +6,21 @@ import './index.css';
 import { store } from 'redux/store';
 import Registration from 'Pages/Registration';
 import Login from 'Pages/Login';
+import { BrowserRouter } from 'react-router-dom';
+import App from 'components/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
+    
+    <BrowserRouter 
+    // basename='/goit-react-hw-08-phonebok'
+    >
+     <Provider store={store}>
           {/* <PhoneBook /> */}
           {/* <Registration/> */}
-        <Login/>
-      </Provider>
+        {/* <Login/> */}
+        <App />
+       </Provider>
+      </BrowserRouter>
   </React.StrictMode>
 );
