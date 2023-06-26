@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { register } from "redux/auth/authOperations";
+import { registration } from "redux/auth/authOperations";
 
 export default function Registration(){
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export default function Registration(){
         password: form.elements.password.value,  
       }
      
-      dispatch(register(newUser));
+      dispatch(registration(newUser));
       form.reset();
     }
 

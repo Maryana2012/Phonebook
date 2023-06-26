@@ -5,7 +5,7 @@ import { addContact, deleteContact, fetchContacts } from './operations';
 const contactInitialState = {
     contact: [],
     isLoading: false,
-    error: null,
+    errorContact: null,
     filter: ''
 } ;
 
@@ -18,31 +18,31 @@ const contactsSlice = createSlice({
         },
         [fetchContacts.fulfilled](state, {payload}){
             state.isLoading = false;
-            state.error = null;
+            state.errorContact = null;
             state.contact=payload;
         },
         [fetchContacts.rejected](state, {payload}){
             state.isLoading = false;
-            state.error = payload;
+            state.errorContact = payload;
         },
         [addContact.pending](state){
             state.isLoading = true;
         },
         [addContact.fulfilled](state, {payload}){
             state.isLoading = false;
-            state.error = null;
+            state.errorContact = null;
             state.contact.push(payload);
         },
         [addContact.rejected](state,{payload}){
             state.isLoading=false;
-            state.error = payload;
+            state.errorContact = payload;
         },
         [deleteContact.pending](state){
             state.isLoading=true;   
         },
         [deleteContact.fulfilled](state,{payload}){
             state.isLoading= false;
-            state.error =null;
+            state.errorContact =null;
             const index = state.contact.findIndex(contact => contact.id === payload.id);
             state.contact.splice(index, 1);  
         },

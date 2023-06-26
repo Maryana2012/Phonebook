@@ -18,8 +18,9 @@ export default function Form() {
     } else {
         const newUser = {
         name: form.elements.name.value, 
-        phone: form.elements.phone.value
+        number: form.elements.phone.value
        }
+       console.log(newUser)
        dispatch(addContact(newUser));
        }
     form.reset();
@@ -37,7 +38,7 @@ export default function Form() {
     <input className={css.input}
             type="tel"
             name="phone"
-            pattern="^[0-9]+$"
+            // pattern="^[0-9]+$"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required/></label>
     <button type="submit">Add contact</button>

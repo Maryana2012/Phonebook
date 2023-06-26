@@ -14,7 +14,7 @@ export default function ContactList() {
              {filteredContacts.map(element => <Contact key={element.id}
                 id={element.id}
                 name={element.name}
-                phone={element.phone} /> )}
+                number={element.number} /> )}
            </ul>)
 }
 

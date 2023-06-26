@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userNameSelector } from "redux/auth/authSelectors";
+import { logOut } from "redux/auth/authOperations";
 
 export default function UserMenu(){
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+    const userName = useSelector(userNameSelector)
     return(
         <>
-          <span>Welcome!!! {userNameSelector}</span>
+          <span>Welcome!!! {userName}</span>
           <button type="button" 
-        //   onClick={()=>{dispatch()}}
+          onClick={()=>{dispatch(logOut())}}
           >Log Out</button>
 
         </>
