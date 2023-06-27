@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactReducer } from './contactSlice';
+import { contactReducer } from './contact/contactSlice';
 import { authReducer } from './auth/authSlice';
 import { persistStore, persistReducer, FLUSH,
     REHYDRATE,
@@ -28,7 +28,5 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
      }),
-    // reducer: contactReducer,
-    // reducer: authReducer
 });
 export const persistor = persistStore(store)

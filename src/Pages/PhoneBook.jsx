@@ -4,8 +4,8 @@ import ContactList from "../components/ContactList/ContactList";
 import Filter from "../components/Filter/Filter";
 import css from '../Pages/PhoneBook.module.css'
 import { useDispatch, useSelector } from "react-redux";
-import { contactsSelector, errorSelector, isLoadingSelector } from "redux/selector";
-import { fetchContacts } from "redux/operations";
+import { contactsSelector, errorSelector, isLoadingSelector } from "redux/contact/selector";
+import { fetchContacts } from "redux/contact/operations";
 
 export default function PhoneBook() {
   const dispatch = useDispatch();
