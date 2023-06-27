@@ -1,0 +1,13 @@
+.title{
+font-size: 32px;
+font-weight: 700;
+text-align: center;
+color: blue;
+}
+.main_text{
+display: flex;
+font-size: 32px;
+font-weight: 400;
+align-items: center;
+justify-content: center;
+}

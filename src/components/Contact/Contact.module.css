@@ -1,14 +1,16 @@
 .item{display: flex;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     width: 450px;
     align-items: center;
+    padding: 10px;
 }
-button {
-    border: none;
-    outline: 1px solid blanchedalmond;
-    background-color: yellow;
-}
+
 .item__text{
     width: 400px;
-    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    }
+.text_name{
+    margin-right: 10px;
+
 }

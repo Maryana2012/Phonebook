@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { contactsSelector, errorSelector, isLoadingSelector } from "redux/contact/selector";
 import { fetchContacts } from "redux/contact/operations";
 
+
 export default function PhoneBook() {
   const dispatch = useDispatch();
   const contact = useSelector(contactsSelector);
@@ -19,10 +20,10 @@ export default function PhoneBook() {
   },[dispatch])
 
   return (<div className={css.container}>
-    <h1 className={css.title}> PhoneBook</h1>
+    <h2 className={css.title}> PhoneBook</h2>
     <Form  /> 
     <h2 className={css.title}>Contacts</h2>
-    {isLoading && <p>Loading tasks...</p>}
+    {isLoading && <p>Loading contacts...</p>}
     {error && <p>{error}</p>}
     <Filter  />
     {contact !== [] &&  <ContactList /> }
