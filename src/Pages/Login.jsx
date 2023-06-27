@@ -20,11 +20,10 @@ export default function Login(){
         <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
          
-
         <label>Email</label>
         <input type="text"
          name="email"
-        //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
          title="Email must contain @"
          required
          />
@@ -32,9 +31,9 @@ export default function Login(){
         <label>Password</label>
         <input type='text'
          name="password"
-        //  pattern="pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"       
+        //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"       
          required
-         />
+          />
 
         <button type="submit">Log In</button>
         </form>
