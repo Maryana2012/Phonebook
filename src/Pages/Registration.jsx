@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { registration } from "redux/auth/authOperations";
-import { Button, Input } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import css from './Registration.module.css'
 
 

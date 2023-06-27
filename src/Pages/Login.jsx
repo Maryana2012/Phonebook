@@ -1,4 +1,4 @@
-import { Button, Input } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { useDispatch } from "react-redux"
 import { logIn } from "redux/auth/authOperations";
 import css from './Login.module.css'

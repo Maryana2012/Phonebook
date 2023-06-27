@@ -1,7 +1,7 @@
 import { useDispatch} from "react-redux";
 import css from '../Contact/Contact.module.css';
 import { deleteContact } from "redux/contact/operations";
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button} from '@chakra-ui/react'
 
 export default function Contact({id,name, number}) {
   const dispatch = useDispatch();
