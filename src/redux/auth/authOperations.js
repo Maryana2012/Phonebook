@@ -14,7 +14,7 @@ const token ={
 export const registration = createAsyncThunk('/auth/register', 
 async({name, email, password}, thunkAPI)=>{
     try{
-       const {data} = await axios.post('https://connections-api.herokuapp.com/users/signup', {name, email, password});
+       const {data} = await axios.post('http://localhost:8000/users/signup', {name, email, password});
        token.set(data.token)
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message);}
