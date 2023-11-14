@@ -24,7 +24,8 @@ async({name, email, password}, thunkAPI)=>{
 export const logIn = createAsyncThunk('/auth/login', 
 async({email,password},thunkAPI)=>{
     try{
-       const {data} = await axios.post('https://connections-api.herokuapp.com/users/login', {email, password});
+       const {data} = await axios.post('http://localhost:8000/users/login', {email, password});
+       console.log(data)
        token.set(data.token);
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message); }
@@ -34,7 +35,7 @@ async({email,password},thunkAPI)=>{
 export const logOut = createAsyncThunk('/users/logout',
 async(_,thunkAPI)=>{
     try{
-        await axios.post('https://connections-api.herokuapp.com/users/logout');
+        await axios.post('http://localhost:8000/users/logout');
         token.unset();
     }
     catch(error){ thunkAPI.rejectWithValue(error.message); }
@@ -48,7 +49,7 @@ async (_, thunkAPI)=>{
     if(persistedToken === null){ return thunkAPI.rejectWithValue() }
     token.set(persistedToken);
     try{
-       const {data} =  await axios.get('https://connections-api.herokuapp.com/users/current');
+       const {data} =  await axios.get('http://localhost:8000/users/current');
        return data;
     }
     catch(error)  { thunkAPI.rejectWithValue(error.message); }
