@@ -46,10 +46,11 @@ const contactsSlice = createSlice({
             const index = state.contact.findIndex(contact => contact._id === payload._id);
             state.contact.splice(index, 1);  
         },
-        [updateContact.pending](state,{payload}){
+        [updateContact.pending](state){
             state.isLoading=true;
         },
         [updateContact.fulfilled](state,{payload}){
+            console.log(payload)
             state.isLoading=false;
             state.errorContact=null;
             const index = state.contact.findIndex(contact => contact._id === payload._id);

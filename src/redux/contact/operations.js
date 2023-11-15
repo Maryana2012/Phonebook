@@ -37,10 +37,11 @@ async (id, thunkAPI) => {
 
 
 export const updateContact = createAsyncThunk('contact/updateContact',
-async (id, {name, number}, thunkAPI)=>{
-
+async ({id, name, number}, thunkAPI)=>{
+   
     try {
-        const response = await axios.put(`http://localhost:8000/contacts/${id}`,{name, number});
+        const response = await axios.put(`http://localhost:8000/contacts/${id}`, {name, number});
+        console.log(response.data)
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

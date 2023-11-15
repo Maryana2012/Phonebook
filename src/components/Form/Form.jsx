@@ -27,13 +27,14 @@ export default function Form({id, name, number}) {
         alert(`is already in contacts`);
     } else {
         const newUser = {
+        id,  
         name: form.elements.name.value, 
         number: form.elements.phone.value
        }
        if(!name){
          dispatch(addContact(newUser));
        } else {
-        dispatch(updateContact(id, newUser))
+        dispatch(updateContact(newUser))
        }
        }
     form.reset();
