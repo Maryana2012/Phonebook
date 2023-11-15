@@ -3,11 +3,21 @@ import { contactsSelector } from "redux/contact/selector";
 import css from '../Form/Form.module.css'
 import { addContact } from "redux/contact/operations";
 import { Button, Input } from '@chakra-ui/react'
+import { useState } from "react";
 
-export default function Form() {
-
+export default function Form({id, name, number}) {
   const dispatch = useDispatch();
   const contact = useSelector(contactsSelector);
+  const [nameUpdate, setNameUpdate] = useState(name);
+  const [numberUpdate, setNumberUpdate] = useState(number);
+
+  const nameChange = (e) =>{
+    setNameUpdate(e.target.value)
+  }
+
+  const numberChange =(e)=>{
+    setNumberUpdate(e.target.value)
+  }
 
 
   const handleSubmit = (e) =>{
@@ -20,7 +30,6 @@ export default function Form() {
         name: form.elements.name.value, 
         number: form.elements.phone.value
        }
-       console.log(newUser)
        dispatch(addContact(newUser));
        }
     form.reset();
@@ -29,19 +38,44 @@ export default function Form() {
   return (
   <form className={css.form__container} onSubmit={handleSubmit}>
     <label htmlFor="" className={css.label}><span className={css.label__form}>Name</span> 
-    <Input className={css.input}
+    {name ? (<Input className={css.input}
+           type="text"
+           name="name"
+           value={nameUpdate}
+           onChange={nameChange}
+           pattern="^[a-zA-Zа-яА-Я]+$"
+           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+           required/>)
+    :
+    (<Input className={css.input}
            type="text"
            name="name"
            pattern="^[a-zA-Zа-яА-Я]+$"
            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-           required/></label>
+           required/>) 
+           }
+           </label>
     <label htmlFor="" className={css.label}><span className={css.label__form}>Number</span>
-    <Input className={css.input}
+    {number ? (
+      <Input className={css.input}
+          type="tel"
+          name="phone"
+          value={numberUpdate}
+          onChange={numberChange}
+          pattern="^[0-9]+$"
+         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+         required/>
+    ) 
+    :(
+     <Input className={css.input}
             type="tel"
             name="phone"
             pattern="^[0-9]+$"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required/></label>
+            required/>
+    )
+    }
+    </label>
     <Button colorScheme='yellow' size='md' className={css.button_add}
      type="submit">Add Contact</Button>
   </form>)

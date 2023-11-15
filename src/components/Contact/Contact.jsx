@@ -3,10 +3,12 @@ import css from '../Contact/Contact.module.css';
 import { deleteContact} from "redux/contact/operations";
 import { Button} from '@chakra-ui/react'
 import { useState } from "react";
+// import { contactsSelector } from "redux/contact/selector";
 import Modal from '../Modal/Modal'
 
 export default function Contact({id,name, number}) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  // const contacts = useSelector(contactsSelector);
 
   const handleOpenModal = () => {
     setIsOpenModal(true);
@@ -29,10 +31,13 @@ export default function Contact({id,name, number}) {
                type='button' onClick={handleDelete}>Delete</Button>
                <Button colorScheme='yellow' size='md'
                type='button' 
-               
                onClick={handleOpenModal}>Update</Button>
                </li>
-               {isOpenModal && <Modal isOpen={isOpenModal} onClose={closeModal} />}
+               {isOpenModal && <Modal isOpen={isOpenModal} 
+               id={id}
+               name={name}
+               number={number}
+               onClose={closeModal} />}
     </>
                )
 }
