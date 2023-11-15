@@ -1,7 +1,7 @@
 import { useDispatch, useSelector} from "react-redux";
 import { contactsSelector } from "redux/contact/selector";
 import css from '../Form/Form.module.css'
-import { addContact } from "redux/contact/operations";
+import { addContact, updateContact } from "redux/contact/operations";
 import { Button, Input } from '@chakra-ui/react'
 import { useState } from "react";
 
@@ -30,7 +30,11 @@ export default function Form({id, name, number}) {
         name: form.elements.name.value, 
         number: form.elements.phone.value
        }
-       dispatch(addContact(newUser));
+       if(!name){
+         dispatch(addContact(newUser));
+       } else {
+        dispatch(updateContact(id, newUser))
+       }
        }
     form.reset();
   }
