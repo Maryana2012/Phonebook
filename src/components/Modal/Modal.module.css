@@ -1,0 +1,11 @@
+.modal{
+    /* display: isOpen ? 'block' : 'none', */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #000;
+    z-index: 2;
+}

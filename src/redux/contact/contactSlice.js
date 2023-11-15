@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { nanoid } from "nanoid"; 
-import { addContact, deleteContact, fetchContacts } from './operations';
+import { addContact, deleteContact, fetchContacts, updateContact } from './operations';
 
 const contactInitialState = {
     contact: [],
@@ -46,6 +46,16 @@ const contactsSlice = createSlice({
             const index = state.contact.findIndex(contact => contact._id === payload._id);
             state.contact.splice(index, 1);  
         },
+        [updateContact.pending](state,{payload}){
+            state.isLoading=true;
+        },
+        [updateContact.fulfilled](state,{payload}){
+            state.isLoading=false;
+            state.errorContact=null;
+            const index = state.contact.findIndex(contact => contact._id === payload._id);
+            state.contact.splice(index, 1, payload)
+        },
+        
     },
     reducers:{
         visibleContact: (state, { payload }) => {
