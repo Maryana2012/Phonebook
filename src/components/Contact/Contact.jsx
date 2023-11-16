@@ -24,15 +24,18 @@ export default function Contact({id,name, number}) {
 
     
     return (<>
-    <li className={css.item} key={id}> <span className={css.item__text}>
+    <li className={css.item} key={id}> 
       <span className={css.text_name}>{name}</span>
-      <span className={css.text_number}>{number}</span></span>
-               <Button colorScheme='yellow' size='md'
+      <span className={css.text_number}>{number}</span>
+      <div className={css.button_container}>
+               <Button colorScheme='yellow'  className={css.button}
                type='button' onClick={handleDelete}>Delete</Button>
-               <Button colorScheme='yellow' size='md'
+               <Button colorScheme='yellow'  className={css.button}
                type='button' 
                onClick={handleOpenModal}>Update</Button>
+      </div>
                </li>
+
                {isOpenModal && <Modal isOpen={isOpenModal} 
                id={id}
                name={name}

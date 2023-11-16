@@ -1,16 +1,32 @@
-.item{display: flex;
-    /* margin-bottom: 10px; */
-    width: 450px;
+.item{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
     padding: 10px;
 }
-
-.item__text{
-    width: 400px;
-    font-size: 18px;
-    font-weight: 400;
-    }
 .text_name{
-    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.text_number{
+    font-size: 15px;
+    font-weight: 600;
+}
+.button_container{
+ display: flex;
+ margin-top: 10px;
 
+}
+.button{
+    width: 70px;
+    height: 30px;
+    font-size: 14px;
+}
+.button:last-child{
+    margin-left: 5px;
+   
 }

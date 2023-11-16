@@ -9,7 +9,7 @@ export default function UserMenu(){
     const userEmail = useSelector(userEmailSelector)
     return(
         <div className={css.nav}>
-          <span className={css.user_menu_text}>Welcome!!! {userEmail}</span>
+          <span className={css.user_menu_text}>{userEmail}</span>
           <Button colorScheme='yellow'  size='md'
           type="button" onClick={()=>{dispatch(logOut())}}>Log Out</Button>
         </div>

@@ -19,13 +19,21 @@ export default function PhoneBook() {
     dispatch(fetchContacts())
   },[dispatch])
 
-  return (<div className={css.container}>
-    <h2 className={css.title}> PhoneBook</h2>
+  return (
+  <>
+ 
+  <div className={css.container}>
+    <h2 className={css.title}>Add new contact</h2>
     <Form  /> 
+  </div>
+  <div className={css.container}>
     <h2 className={css.title}>Contacts</h2>
     {isLoading && <p>Loading contacts...</p>}
     {error && <p>{error}</p>}
     <Filter  />
-    {(contact !== []) &&  <ContactList /> }
-    </div>)
+    {contact &&  <ContactList /> }
+  </div>
+    
+    </>
+    )
 }
