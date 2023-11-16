@@ -3,13 +3,12 @@ import css from '../Contact/Contact.module.css';
 import { deleteContact} from "redux/contact/operations";
 import { Button} from '@chakra-ui/react'
 import { useState } from "react";
-// import { contactsSelector } from "redux/contact/selector";
 import Modal from '../Modal/Modal'
 
 export default function Contact({id,name, number}) {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  // const contacts = useSelector(contactsSelector);
-
+  const dispatch = useDispatch();
+  
   const handleOpenModal = () => {
     setIsOpenModal(true);
   };
@@ -18,7 +17,6 @@ export default function Contact({id,name, number}) {
     setIsOpenModal(false);
   };
 
-  const dispatch = useDispatch();
 
   const handleDelete = () => dispatch(deleteContact(id));
 

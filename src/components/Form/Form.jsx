@@ -5,7 +5,7 @@ import { addContact, updateContact } from "redux/contact/operations";
 import { Button, Input } from '@chakra-ui/react'
 import { useState } from "react";
 
-export default function Form({id, name, number}) {
+export default function Form({id, name, number, onClose}) {
   const dispatch = useDispatch();
   const contact = useSelector(contactsSelector);
   const [nameUpdate, setNameUpdate] = useState(name);
@@ -19,24 +19,25 @@ export default function Form({id, name, number}) {
     setNumberUpdate(e.target.value)
   }
 
-
   const handleSubmit = (e) =>{
     e.preventDefault();
     const form = e.target;
-    if (contact.some(element => element.name.toLowerCase() === form.elements.name.value.toLowerCase())) {
+    const newUser = {
+      id,  
+      name: form.elements.name.value, 
+      number: form.elements.phone.value
+     }
+
+    if(name){ 
+    dispatch(updateContact(newUser));
+    onClose();
+    } else {
+      if (contact.some(element => element.name.toLowerCase() === form.elements.name.value.toLowerCase())) {
         alert(`is already in contacts`);
     } else {
-        const newUser = {
-        id,  
-        name: form.elements.name.value, 
-        number: form.elements.phone.value
-       }
-       if(!name){
-         dispatch(addContact(newUser));
-       } else {
-        dispatch(updateContact(newUser))
-       }
-       }
+      dispatch(addContact(newUser))   
+      }
+    }
     form.reset();
   }
   
