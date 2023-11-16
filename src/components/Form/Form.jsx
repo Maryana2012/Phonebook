@@ -2,7 +2,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { contactsSelector } from "redux/contact/selector";
 import css from '../Form/Form.module.css'
 import { addContact, updateContact } from "redux/contact/operations";
-import { Button, Input } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { useState } from "react";
 
 export default function Form({id, name, number, onClose}) {
@@ -44,7 +44,7 @@ export default function Form({id, name, number, onClose}) {
   return (
   <form className={css.form__container} onSubmit={handleSubmit}>
     <label htmlFor="" className={css.label}><span className={css.label__form}>Name</span> 
-    {name ? (<Input className={css.input}
+    {name ? (<input className={css.input}
            type="text"
            name="name"
            value={nameUpdate}
@@ -53,7 +53,7 @@ export default function Form({id, name, number, onClose}) {
            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
            required/>)
     :
-    (<Input className={css.input}
+    (<input className={css.input}
            type="text"
            name="name"
            pattern="^[a-zA-Zа-яА-Я]+$"
@@ -63,7 +63,7 @@ export default function Form({id, name, number, onClose}) {
            </label>
     <label htmlFor="" className={css.label}><span className={css.label__form}>Number</span>
     {number ? (
-      <Input className={css.input}
+      <input className={css.input}
           type="tel"
           name="phone"
           value={numberUpdate}
@@ -73,7 +73,7 @@ export default function Form({id, name, number, onClose}) {
          required/>
     ) 
     :(
-     <Input className={css.input}
+     <input className={css.input}
             type="tel"
             name="phone"
             pattern="^[0-9]+$"
