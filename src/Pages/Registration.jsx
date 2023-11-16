@@ -2,10 +2,12 @@ import { useDispatch } from "react-redux"
 import { registration } from "redux/auth/authOperations";
 import { Button } from '@chakra-ui/react'
 import css from './Registration.module.css'
+import { useNavigate } from "react-router-dom";
 
 
 export default function Registration(){
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = (e)=>{
       e.preventDefault();
@@ -17,6 +19,7 @@ export default function Registration(){
       }
      
       dispatch(registration(newUser));
+      navigate("/login")
       form.reset();
     }
 
@@ -37,7 +40,7 @@ export default function Registration(){
 
         <label className={css.label}><span className={css.label__form}>Email</span></label>
         <input className={css.input} 
-        type="text"
+        type="email"
          name="email"
          placeholder="penelopa@gmail.com"
         //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
@@ -48,7 +51,7 @@ export default function Registration(){
 
         <label className={css.label}><span className={css.label__form}>Password</span></label>
         <input className={css.input} 
-        type='text'
+         type="password" 
          name="password"
         //  pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$"  
          required

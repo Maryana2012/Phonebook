@@ -49,15 +49,15 @@ export default function Form({id, name, number, onClose}) {
            name="name"
            value={nameUpdate}
            onChange={nameChange}
-           pattern="^[a-zA-Zа-яА-Я]+$"
-           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          //  pattern="^[a-zA-Zа-яА-Я'\\s]+$"
+          //  title="Name may contain only letters, apostrophe, and spaces."
            required/>)
     :
     (<input className={css.input}
            type="text"
            name="name"
-           pattern="^[a-zA-Zа-яА-Я]+$"
-           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          //  pattern="^[a-zA-Zа-яА-Я'\\s]+$"
+          //  title="Name may contain only letters, apostrophe, and spaces."
            required/>) 
            }
            </label>
@@ -68,16 +68,16 @@ export default function Form({id, name, number, onClose}) {
           name="phone"
           value={numberUpdate}
           onChange={numberChange}
-          pattern="^[0-9]+$"
-         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          // pattern="[0-9]"
+        //  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
          required/>
     ) 
     :(
      <input className={css.input}
             type="tel"
             name="phone"
-            pattern="^[0-9]+$"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            // pattern="[0-9]"
+            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required/>
     )
     }

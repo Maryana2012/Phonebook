@@ -24,7 +24,7 @@ export default function Login(){
          
         <label className={css.label}><span className={css.label__form}>Email</span></label>
         <input className={css.input} 
-        type="text"
+        type="email"
          name="email"
         //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
          title="Email must contain @"
@@ -34,7 +34,7 @@ export default function Login(){
 
         <label className={css.label}><span className={css.label__form}>Password</span></label>
         <input className={css.input} 
-        type='text'
+        type='password'
          name="password"
         //  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$"       
          required
