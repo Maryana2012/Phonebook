@@ -1,13 +1,8 @@
-// import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom";
-// import { registration } from "redux/auth/authOperations";
 import { Button } from '@chakra-ui/react'
 import css from './FormAuth.module.css'
 
 const FormAuth = ({onSubmit, buttonText, isRegistration}) =>{
     
-    const navigate = useNavigate();
-
     const handleSubmit = (e)=>{
       e.preventDefault();
       const form = e.target;
@@ -18,10 +13,9 @@ const FormAuth = ({onSubmit, buttonText, isRegistration}) =>{
             password: form.elements.password.value,  
           }
           onSubmit(formData);
-          navigate("/login")
-    }
-    else{
-        const formData={
+        }
+       else{
+          const formData={
             email: form.elements.email.value,
             password: form.elements.password.value,  
           }
@@ -33,7 +27,6 @@ const FormAuth = ({onSubmit, buttonText, isRegistration}) =>{
 
     return(
         <form className={css.form__container} onSubmit={handleSubmit}>
-        {/* <h2 className={css.title}>Registration</h2> */}
         {isRegistration &&
         <>
         <label className={css.label}><span className={css.label__form}>Name</span></label>
