@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
+const BASE_URL = 'http://localhost:8000/users/'
 const token ={
     set(token){
         axios.defaults.headers.common.Authorization=`Bearer ${token}` 
@@ -14,28 +16,34 @@ const token ={
 export const registration = createAsyncThunk('/auth/register', 
 async({name, email, password}, thunkAPI)=>{
     try{
-       const {data} = await axios.post('http://localhost:8000/users/signup', {name, email, password});
+       const {data} = await axios.post(`${BASE_URL}/signup`, {name, email, password});
        token.set(data.token)
        return data;
-    } catch (error){ thunkAPI.rejectWithValue(error.message);}
+    } catch (error){ thunkAPI.rejectWithValue(error.message);
+      if(error.response.status === 409)
+     toast.error("This email is in use")}
 }) 
 
 
 export const logIn = createAsyncThunk('/auth/login', 
 async({email,password},thunkAPI)=>{
     try{
-       const {data} = await axios.post('http://localhost:8000/users/login', {email, password});
+       const {data} = await axios.post(`${BASE_URL}/login`, {email, password});
        console.log(data)
        token.set(data.token);
        return data;
-    } catch (error){ thunkAPI.rejectWithValue(error.message); }
+    } catch (error){ thunkAPI.rejectWithValue(error.message);
+        if(error.response.status === 401){
+            toast.error("Email or password is wrong")
+        }
+    }
 }) 
 
 
 export const logOut = createAsyncThunk('/users/logout',
 async(_,thunkAPI)=>{
     try{
-        await axios.post('http://localhost:8000/users/logout');
+        await axios.post(`${BASE_URL}/logout`);
         token.unset();
     }
     catch(error){ thunkAPI.rejectWithValue(error.message); }
@@ -49,7 +57,7 @@ async (_, thunkAPI)=>{
     if(persistedToken === null){ return thunkAPI.rejectWithValue() }
     token.set(persistedToken);
     try{
-       const {data} =  await axios.get('http://localhost:8000/users/current');
+       const {data} =  await axios.get(`${BASE_URL}/current`);
        return data;
     }
     catch(error)  { thunkAPI.rejectWithValue(error.message); }
