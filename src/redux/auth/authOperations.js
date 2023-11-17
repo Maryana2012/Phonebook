@@ -21,7 +21,7 @@ async({name, email, password}, thunkAPI)=>{
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message);
       if(error.response.status === 409)
-     toast.error("This email is in use")}
+        toast.error("This email is in use")}
 }) 
 
 
@@ -29,12 +29,11 @@ export const logIn = createAsyncThunk('/auth/login',
 async({email,password},thunkAPI)=>{
     try{
        const {data} = await axios.post(`${BASE_URL}/login`, {email, password});
-       console.log(data)
        token.set(data.token);
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message);
         if(error.response.status === 401){
-            toast.error("Email or password is wrong")
+         toast.error("Email or password is wrong")
         }
     }
 }) 

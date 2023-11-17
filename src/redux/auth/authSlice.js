@@ -10,30 +10,39 @@ const initialStateUser={
 
 }
 
-const authSlice = createSlice ({
-    name:"auth",
-    initialState: initialStateUser,
-    extraReducers:{
-      [registration.fulfilled](state, action){
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      },
-      [logIn.fulfilled](state, action){
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-      },
-      [logOut.fulfilled](state){
-        state.user = { name: '', email: ''};
-        state.token = null;
-        state.isLoggedIn = false;
-      },
-      [fetchCurrentUser.fulfilled](state,action){
-        state.user = action.payload;
-        state.isLoggedIn = true; 
-      }
-    }
+const handleRegistrationFulfilled = (state, {payload})=>{
+  state.user = payload.user;
+  state.token = payload.token;
+  state.isLoggedIn = true;
+}
+
+const handleLoginFulfilled =(state, {payload}) =>{
+  state.user = payload.user;
+  state.token = payload.token;
+  state.isLoggedIn = true;
+}
+
+const handleLogoutFulfilled = (state)=>{
+  state.user = { name: '', email: ''};
+  state.token = null;
+  state.isLoggedIn = false;
+}
+
+const handleCurrentFulfilled =(state, {payload}) =>{
+  state.user = payload;
+  state.isLoggedIn = true; 
+}
+const authSlice = createSlice({
+  name:"auth",
+  initialState: initialStateUser,
+  extraReducers: (builder) => {
+    builder
+    .addCase(registration.fulfilled, handleRegistrationFulfilled)
+    .addCase(logIn.fulfilled, handleLoginFulfilled)
+    .addCase(logOut.fulfilled, handleLogoutFulfilled)
+    .addCase(fetchCurrentUser.fulfilled, handleCurrentFulfilled)
+    
+  }
 })
 
 export const authReducer = authSlice.reducer;
