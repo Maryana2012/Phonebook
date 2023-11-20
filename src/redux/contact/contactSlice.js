@@ -34,10 +34,6 @@ const handleUpdateFulfilled = (state, {payload})=>{
     state.contact.splice(index, 1, payload)
 }
 
-const handleVisibleFulfilled = (state, {payload}) =>{
-    state.filter = payload;
-}
-
 const contactsSlice = createSlice({
     name: 'contacts',
     initialState: initialStateContact,

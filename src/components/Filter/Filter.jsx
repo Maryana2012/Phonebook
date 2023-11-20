@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { visibleContact } from 'redux/contact/contactSlice';
-
 import css from '../Filter/Filter.module.css';
 
 export default function Filter() {

@@ -1,13 +1,12 @@
 .title{
-font-size: 32px;
+font-size: 48px;
 font-weight: 700;
 text-align: center;
 color: blue;
+margin-bottom: 20px;
 }
-.main_text{
-display: flex;
-font-size: 32px;
-font-weight: 400;
-align-items: center;
-justify-content: center;
+
+.heroImage{
+    width: 500px;
+    margin: 0 auto;
 }

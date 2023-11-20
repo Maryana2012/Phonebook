@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Form from "../components/Form/Form";
 import ContactList from "../components/ContactList/ContactList";
 import Filter from "../components/Filter/Filter";
-import css from '../Pages/PhoneBook.module.css'
-import { useDispatch, useSelector } from "react-redux";
 import { contactsSelector, errorSelector, isLoadingSelector } from "redux/contact/selector";
 import { fetchContacts } from "redux/contact/operations";
+import css from '../Pages/PhoneBook.module.css'
 
 
 export default function PhoneBook() {

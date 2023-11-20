@@ -1,9 +1,9 @@
 import { useDispatch} from "react-redux";
-import css from '../Contact/Contact.module.css';
 import { deleteContact} from "redux/contact/operations";
 import { Button} from '@chakra-ui/react'
 import { useState } from "react";
 import Modal from '../Modal/Modal'
+import css from '../Contact/Contact.module.css';
 
 export default function Contact({id,name, number}) {
   const [isOpenModal, setIsOpenModal] = useState(false);

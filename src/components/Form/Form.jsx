@@ -1,9 +1,10 @@
 import { useDispatch, useSelector} from "react-redux";
 import { contactsSelector } from "redux/contact/selector";
-import css from '../Form/Form.module.css'
 import { addContact, updateContact } from "redux/contact/operations";
 import { Button } from '@chakra-ui/react'
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import css from '../Form/Form.module.css'
 
 export default function Form({id, name, number, onClose}) {
   const dispatch = useDispatch();
@@ -33,7 +34,8 @@ export default function Form({id, name, number, onClose}) {
     onClose();
     } else {
       if (contact.some(element => element.name.toLowerCase() === form.elements.name.value.toLowerCase())) {
-        alert(`is already in contacts`);
+        toast.error(`${form.elements.name.value} is already in contacts`)
+        return
     } else {
       dispatch(addContact(newUser))   
       }
