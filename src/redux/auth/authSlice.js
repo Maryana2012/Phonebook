@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {  fetchCurrentUser, logIn, logOut, registration } from './authOperations';
+import {  fetchCurrentUser, logIn, logOut, registration, updateAvatar } from './authOperations';
 
 
 const initialStateUser={
     user: { name: '',
-            email: ''},
+            email: '',
+            avatarURL: ''},
     token: null,
     isLoggedIn: false
 
@@ -32,6 +33,10 @@ const handleCurrentFulfilled =(state, {payload}) =>{
   state.user = payload;
   state.isLoggedIn = true; 
 }
+
+const handleUpdateAvatar = (state, {payload})=>{
+  state.user.avatarURL = payload.avatar;
+}
 const authSlice = createSlice({
   name:"auth",
   initialState: initialStateUser,
@@ -41,7 +46,7 @@ const authSlice = createSlice({
     .addCase(logIn.fulfilled, handleLoginFulfilled)
     .addCase(logOut.fulfilled, handleLogoutFulfilled)
     .addCase(fetchCurrentUser.fulfilled, handleCurrentFulfilled)
-    
+    .addCase(updateAvatar.fulfilled, handleUpdateAvatar)
   }
 })
 

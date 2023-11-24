@@ -61,3 +61,16 @@ async (_, thunkAPI)=>{
     }
     catch(error)  { thunkAPI.rejectWithValue(error.message); }
  })
+
+ export const updateAvatar = createAsyncThunk('users/updateAvatar',
+ async(file, thunkAPI)=>{
+    try {
+        const formData = new FormData();
+        // console.log(formData)
+        formData.append('avatar', file);
+        const {data} = await axios.patch(`${BASE_URL}/avatar`, formData, {headers:{"Content-Type": "multipart/form-data"}});
+        return data;
+    } catch (error) {
+       return thunkAPI.rejectWithValue(error.message);
+    }
+ })
