@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    /* margin-left: 50px; */
+    width: 500px;
+    height: 80px;
+}
+
+.nav_text{
+    font-size: 18px;
+    font-weight: 700;
+}
+.title{
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: blue;
+    margin-bottom: 20px;
+    }
+
+.title_span{
+    font-size: 18px;
+    font-weight: 400;
+    color: blue;
+}
+
+.text{
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.button{
+    margin-top: 10px;
+}
+button:hover, button:focus{
+    background-color: rgb(233, 233, 113);
+}

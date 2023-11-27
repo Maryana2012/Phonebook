@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: space-around;
     padding: 20px;
-    /* margin-left: 50px; */
     width: 500px;
     height: 80px;
 }
@@ -11,7 +10,6 @@
 .nav_text{
     font-size: 18px;
     font-weight: 700;
-    /* color: blue; */
 }
 
 .nav_box{

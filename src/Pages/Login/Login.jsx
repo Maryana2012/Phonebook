@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { logIn } from "redux/auth/authOperations";
-import FormAuth from "components/FormAuth/FormAuth";
-import css from '../components/FormAuth/FormAuth.module.css'
+import FormAuth from "../../components/FormAuth/FormAuth";
+import css from '../../components/FormAuth/FormAuth.module.css'
 
 export default function Login(){
     const dispatch = useDispatch();

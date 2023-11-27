@@ -7,12 +7,12 @@ import { fetchCurrentUser } from 'redux/auth/authOperations';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
-const HomePage = lazy(()=>import('../Pages/Home'));
-const LoginPage = lazy(()=>import('../Pages/Login'));
-const RegistrationPage = lazy(()=>import('../Pages/Registration'));
-const ContactsPage = lazy(()=>import('../Pages/PhoneBook'));
-const ProfilePage = lazy(()=>import('../Pages/Profile'));
-const UpdateProfilePage = lazy(()=>import('../Pages/UpdateProfile'))
+const HomePage = lazy(()=>import('../Pages/Home/Home'));
+const LoginPage = lazy(()=>import('../Pages/Login/Login'));
+const RegistrationPage = lazy(()=>import('../Pages/Registration/Registration'));
+const ContactsPage = lazy(()=>import('../Pages/PhoneBook/PhoneBook'));
+const ProfilePage = lazy(()=>import('../Pages/Profile/Profile'));
+const UpdateProfilePage = lazy(()=>import('../Pages/UploadProfile/UpdateProfile'))
 
 
 export default function App(){

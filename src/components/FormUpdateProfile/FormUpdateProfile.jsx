@@ -1,28 +1,28 @@
 import { Button } from '@chakra-ui/react'
 import css from './FormAuth.module.css'
 
-const FormAuth = ({onSubmit, buttonText, isRegistration}) =>{
+const FormUpdateProfile = () =>{
     
-    const handleSubmit = (e)=>{
-      e.preventDefault();
-      const form = e.target;
-      if(isRegistration){
-          const formData={
-            name: form.elements.name.value, 
-            email: form.elements.email.value,
-            password: form.elements.password.value,  
-          }
-          onSubmit(formData);
-        }
-       else{
-          const formData={
-            email: form.elements.email.value,
-            password: form.elements.password.value,  
-          }
-         onSubmit(formData);
-      }
-    form.reset();
-}
+//     const handleSubmit = (e)=>{
+//       e.preventDefault();
+//       const form = e.target;
+//       if(isRegistration){
+//           const formData={
+//             name: form.elements.name.value, 
+//             email: form.elements.email.value,
+//             password: form.elements.password.value,  
+//           }
+//           onSubmit(formData);
+//         }
+//        else{
+//           const formData={
+//             email: form.elements.email.value,
+//             password: form.elements.password.value,  
+//           }
+//          onSubmit(formData);
+//       }
+//     form.reset();
+// }
 
 
     return(

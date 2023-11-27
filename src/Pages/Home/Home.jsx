@@ -5,7 +5,6 @@ export default function Home(){
         <>
           <h1 className={css.title}>Phone Book</h1>
           <img src={image} alt='phone' className={css.heroImage} />
-          {/* <span className={css.main_text}> text of main page  </span> */}
         </>
     )
 }
