@@ -1,8 +1,22 @@
 import { Button } from '@chakra-ui/react'
-import css from './FormAuth.module.css'
+import {useDropzone} from 'react-dropzone'
+import { useDispatch } from 'react-redux';
+import { updateAvatar } from 'redux/auth/authOperations';
+import { useState } from 'react';
+import css from './FormUpdateProfile.module.css'
 
 const FormUpdateProfile = () =>{
-    
+    const dispatch = useDispatch();
+    const {getRootProps, getInputProps} = useDropzone()
+    const [file, setFile]= useState(null); 
+
+    const handleChange = (e)=>{
+        setFile(e.target.files[0]);
+    }
+
+    const handleUpdate =()=>{
+        dispatch(updateAvatar(file));
+    }
 //     const handleSubmit = (e)=>{
 //       e.preventDefault();
 //       const form = e.target;
@@ -26,9 +40,15 @@ const FormUpdateProfile = () =>{
 
 
     return(
-        <form className={css.form__container} onSubmit={handleSubmit}>
-        {isRegistration &&
-        <>
+        
+        <form className={css.form__container} 
+        onSubmit={handleUpdate}
+        >
+        
+        <div {...getRootProps()} onClick={handleChange}>
+          <input {...getInputProps()} />
+          <p>Drag 'n' drop some files here, or click to select files</p>
+        </div>
         <label className={css.label}><span className={css.label__form}>Name</span></label>
         <input className={css.input}
          type="text"
@@ -39,8 +59,7 @@ const FormUpdateProfile = () =>{
          required
          size='md'
         />
-        </>
-         }
+        
         
 
         <label className={css.label}><span className={css.label__form}>Email</span></label>
@@ -64,10 +83,10 @@ const FormUpdateProfile = () =>{
                   />
          <Button 
          className={css.button} colorScheme='yellow' size='md'
-         type="submit">{buttonText}</Button>
+         type="submit">Update</Button>
         </form>
     )
 
 }
 
-export default FormAuth;
+export default FormUpdateProfile;
