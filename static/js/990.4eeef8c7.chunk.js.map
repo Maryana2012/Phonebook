@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/990.4eeef8c7.chunk.js","mappings":"8IAIA,UAJsB,WAErB,C","sources":["Pages/UpdateProfile.jsx"],"sourcesContent":["const UpdateProfile = () =>{\n\n}\n\nexport default UpdateProfile;"],"names":[],"sourceRoot":""}
