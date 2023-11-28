@@ -12,7 +12,7 @@ return (<>
     <button className={css.button} onClick={onClose}>
         <AiOutlineClose/>
     </button>
-    <FormUpdateProfile/>
+    <FormUpdateProfile />
     </div>
 </>)
 }

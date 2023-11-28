@@ -63,11 +63,18 @@ async (_, thunkAPI)=>{
  })
 
  export const updateAvatar = createAsyncThunk('users/updateAvatar',
- async(file, thunkAPI)=>{
+ async({file, newUser}, thunkAPI)=>{
     try {
+        console.log(file);
+        console.log(newUser)
         const formData = new FormData();
-        // console.log(formData)
+       
         formData.append('avatar', file);
+        formData.append('updateName',newUser.name);
+        formData.append('updateEmail', newUser.email);
+        if (newUser.password) {
+            formData.append('updatePassword', newUser.password)
+        } else { return}
         const {data} = await axios.patch(`${BASE_URL}/avatar`, formData, {headers:{"Content-Type": "multipart/form-data"}});
         return data;
     } catch (error) {
