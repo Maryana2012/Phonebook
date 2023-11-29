@@ -18,7 +18,7 @@ const FormUpdateProfile = () =>{
 
     const handleChange = (e)=>{
         setFile(e.target.files[0]);
-    }
+     }
 
     const nameChange =(e)=>{
       setNameUpdate(e.target.value);
@@ -34,13 +34,20 @@ const FormUpdateProfile = () =>{
 
     const handleUpdate =(e)=>{
         e.preventDefault();
-        const newUser = {
-          name: nameUpdate,
-          email: emailUpdate,
-          password: passwordUpdate
+        if(passwordUpdate){
+          const newUser = {
+            name: nameUpdate,
+            email: emailUpdate,
+            password: passwordUpdate
+          }
+          dispatch(updateAvatar({file, newUser}));
+        } else{
+          const newUser = {
+            name: nameUpdate,
+            email: emailUpdate,
+          }
+          dispatch(updateAvatar({file, newUser}));
         }
-        // console.log(newUser)
-        dispatch(updateAvatar({file, newUser}));
     }
 
 
@@ -55,15 +62,17 @@ const FormUpdateProfile = () =>{
           <p>Drag 'n' drop some files here, or click to select files</p>
         </div> */}
         <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='250' height='250'/>
-        <input type="file" onChange={handleChange}/>
+        <input type="file" 
+          //  value={file ? '' : undefined}
+            onChange={handleChange}/>
         <label className={css.label}><span className={css.label__form}>Name</span></label>
         <input className={css.input}
-         type="text"
-         name="name"
-         value={nameUpdate}
-         onChange={nameChange}
-         required
-         size='md'
+            type="text"
+            name="name"
+            value={nameUpdate}
+            onChange={nameChange}
+            required
+            size='md'
         />
         
         
