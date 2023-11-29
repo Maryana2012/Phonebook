@@ -39,6 +39,7 @@ const FormUpdateProfile = () =>{
           email: emailUpdate,
           password: passwordUpdate
         }
+        // console.log(newUser)
         dispatch(updateAvatar({file, newUser}));
     }
 
