@@ -59,7 +59,7 @@ const FormUpdateProfile = ({onClose}) =>{
         onSubmit={handleUpdate}
         >
         <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='150' height='150'/>
-        <input type="file" onChange={handleChange}/>
+        <input type="file" onChange={handleChange} className={css.inputFile} />
         {/* <InputFiles onChange={handleChange}>
             
             <AiOutlineDownload className={css.download}/>
