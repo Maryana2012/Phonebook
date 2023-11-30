@@ -35,10 +35,12 @@ const handleCurrentFulfilled =(state, {payload}) =>{
 }
 
 const handleUpdateAvatar = (state, {payload})=>{
+  console.log(payload)
   state.user.avatarURL = payload.avatar;
   state.user.name = payload.name;
   state.user.email = payload.email;
 }
+
 const authSlice = createSlice({
   name:"auth",
   initialState: initialStateUser,

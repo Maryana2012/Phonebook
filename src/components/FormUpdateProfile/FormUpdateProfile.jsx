@@ -1,13 +1,13 @@
 import { Button } from '@chakra-ui/react'
-// import {useDropzone} from 'react-dropzone'
+import InputFiles from 'react-input-files';
+import { AiOutlineDownload } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAvatar } from 'redux/auth/authOperations';
 import { useState } from 'react';
 import css from './FormUpdateProfile.module.css'
 
-const FormUpdateProfile = () =>{
+const FormUpdateProfile = ({onClose}) =>{
     const dispatch = useDispatch();
-
     // const {getRootProps, getInputProps} = useDropzone()
     const user = useSelector(state=>state.authReducer.user);
     const [file, setFile]= useState(null); 
@@ -41,12 +41,14 @@ const FormUpdateProfile = () =>{
             password: passwordUpdate
           }
           dispatch(updateAvatar({file, newUser}));
+          onClose()
         } else{
           const newUser = {
             name: nameUpdate,
             email: emailUpdate,
           }
           dispatch(updateAvatar({file, newUser}));
+          onClose()
         }
     }
 
@@ -56,44 +58,32 @@ const FormUpdateProfile = () =>{
         <form className={css.form__container} 
         onSubmit={handleUpdate}
         >
-        
-        {/* <div {...getRootProps({onClick:()=> handleChange()})} >
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </div> */}
-        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='250' height='250'/>
-        <input type="file" 
-          //  value={file ? '' : undefined}
-            onChange={handleChange}/>
+        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='150' height='150'/>
+        <input type="file" onChange={handleChange}/>
+        {/* <InputFiles onChange={handleChange}>
+            
+            <AiOutlineDownload className={css.download}/>
+        </InputFiles> */}
         <label className={css.label}><span className={css.label__form}>Name</span></label>
         <input className={css.input}
             type="text"
             name="name"
             value={nameUpdate}
-            onChange={nameChange}
-            required
-            size='md'
-        />
+            onChange={nameChange}/>
         
-        
-
         <label className={css.label}><span className={css.label__form}>Email</span></label>
         <input className={css.input} 
         type="email"
          name="email"
          value={emailUpdate}
-         onChange={emailChange}
-         required
-         size='md'/>
+         onChange={emailChange}/>
 
         <label className={css.label}><span className={css.label__form}>Password</span></label>
         <input className={css.input} 
          type="password" 
          name="password"
          value={passwordUpdate}
-         onChange={passwordChange}
-        
-         size='md'/>
+         onChange={passwordChange}/>
          <Button 
          className={css.button} colorScheme='yellow' size='md'
          type="submit">Update</Button>

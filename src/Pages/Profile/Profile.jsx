@@ -26,7 +26,7 @@ const Profile =()=>{
  
     <Button className={css.button}
       type="button" colorScheme='yellow' size='md'
-      onClick={handleOpenModal}>Update avatar</Button>
+      onClick={handleOpenModal}>Update</Button>
 
       {isOpenModal && <ModalUpdateProfile onClose={closeModal} />}
  

@@ -1,5 +1,5 @@
 import { AiOutlineClose } from 'react-icons/ai';
-import css from '../Modal/Modal.module.css'
+import css from '../ModalUpdateProfile/ModalUpdateProfile.module.css'
 import FormUpdateProfile from 'components/FormUpdateProfile/FormUpdateProfile';
 
 
@@ -12,7 +12,7 @@ return (<>
     <button className={css.button} onClick={onClose}>
         <AiOutlineClose/>
     </button>
-    <FormUpdateProfile />
+    <FormUpdateProfile onClose={onClose}/>
     </div>
 </>)
 }
