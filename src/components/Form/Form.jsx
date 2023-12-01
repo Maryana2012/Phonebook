@@ -51,15 +51,11 @@ export default function Form({id, name, number, onClose}) {
            name="name"
            value={nameUpdate}
            onChange={nameChange}
-          //  pattern="^[a-zA-Zа-яА-Я'\\s]+$"
-          //  title="Name may contain only letters, apostrophe, and spaces."
            required/>)
     :
     (<input className={css.input}
            type="text"
            name="name"
-          //  pattern="^[a-zA-Zа-яА-Я'\\s]+$"
-          //  title="Name may contain only letters, apostrophe, and spaces."
            required/>) 
            }
            </label>
@@ -70,16 +66,12 @@ export default function Form({id, name, number, onClose}) {
           name="phone"
           value={numberUpdate}
           onChange={numberChange}
-          // pattern="[0-9]"
-        //  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-         required/>
+          required/>
     ) 
     :(
      <input className={css.input}
             type="tel"
             name="phone"
-            // pattern="[0-9]"
-            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required/>
     )
     }
