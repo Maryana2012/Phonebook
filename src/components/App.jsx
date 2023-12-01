@@ -12,7 +12,7 @@ const LoginPage = lazy(()=>import('../Pages/Login/Login'));
 const RegistrationPage = lazy(()=>import('../Pages/Registration/Registration'));
 const ContactsPage = lazy(()=>import('../Pages/PhoneBook/PhoneBook'));
 const ProfilePage = lazy(()=>import('../Pages/Profile/Profile'));
-const UpdateProfilePage = lazy(()=>import('../Pages/UploadProfile/UpdateProfile'))
+// const UpdateProfilePage = lazy(()=>import('../Pages/UploadProfile/UpdateProfile'))
 
 
 export default function App(){
@@ -42,10 +42,6 @@ export default function App(){
           <Route path='profile' element={
           <PrivateRoute>
             <ProfilePage/>
-          </PrivateRoute>}/>
-          <Route path='profile/update' element={
-          <PrivateRoute>
-            <UpdateProfilePage/>
           </PrivateRoute>}/>
         </Route>  
     </Routes>

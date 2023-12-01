@@ -84,7 +84,7 @@ export default function Form({id, name, number, onClose}) {
     )
     }
     </label>
-    <Button colorScheme='yellow' size='md' className={css.button_add}
+    <Button colorScheme='yellow' size='md' className={css.button}
      type="submit">{name ? 'Update' : 'Add Contact'}</Button>
   </form>)
 }

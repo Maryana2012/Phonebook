@@ -20,7 +20,7 @@ const Profile =()=>{
 
    return(<div className={css.container}>
      <h2 className={css.title}>Profile</h2>
-     <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='250' height='250'/>
+     <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} className={css.avatar} width='250' height='250'/>
      <p className={css.text}><span className={css.title_span}>Name:</span> {user.name}</p>
      <p className={css.text}><span className={css.title_span}>Email:</span> {user.email}</p>
  

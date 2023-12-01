@@ -1,6 +1,4 @@
 import { Button } from '@chakra-ui/react'
-import InputFiles from 'react-input-files';
-import { AiOutlineDownload } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAvatar } from 'redux/auth/authOperations';
 import { useState } from 'react';
@@ -8,7 +6,7 @@ import css from './FormUpdateProfile.module.css'
 
 const FormUpdateProfile = ({onClose}) =>{
     const dispatch = useDispatch();
-    // const {getRootProps, getInputProps} = useDropzone()
+    
     const user = useSelector(state=>state.authReducer.user);
     const [file, setFile]= useState(null); 
     const [nameUpdate, setNameUpdate] = useState(user.name);
@@ -58,12 +56,9 @@ const FormUpdateProfile = ({onClose}) =>{
         <form className={css.form__container} 
         onSubmit={handleUpdate}
         >
-        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} width='150' height='150'/>
-        <input type="file" onChange={handleChange} className={css.inputFile} />
-        {/* <InputFiles onChange={handleChange}>
-            
-            <AiOutlineDownload className={css.download}/>
-        </InputFiles> */}
+        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} className={css.avatar} width='150' height='150'/>
+        <input type="file" onChange={handleChange} className={css.input_file} />
+       
         <label className={css.label}><span className={css.label__form}>Name</span></label>
         <input className={css.input}
             type="text"

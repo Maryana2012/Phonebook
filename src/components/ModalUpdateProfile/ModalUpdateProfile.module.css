@@ -4,13 +4,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: #fff;
+    background-color:rgb(245, 242, 242);
     border: 1px solid #000;
     z-index: 3;
     width: 540px;
 }
 .button{
     position: absolute;
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
     top: 5px;
     right: 5px
 }

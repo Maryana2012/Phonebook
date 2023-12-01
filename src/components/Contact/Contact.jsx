@@ -1,5 +1,6 @@
 import { useDispatch} from "react-redux";
 import { deleteContact} from "redux/contact/operations";
+import { FaPhoneAlt,FaUser } from "react-icons/fa";
 import { Button} from '@chakra-ui/react'
 import { useState } from "react";
 import Modal from '../Modal/Modal'
@@ -22,9 +23,15 @@ export default function Contact({id,name, number}) {
 
     
     return (<>
-    <li className={css.item} key={id}> 
-      <span className={css.text_name}>{name}</span>
-      <span className={css.text_number}>{number}</span>
+    <li className={css.item} key={id}>
+      <div className={css.container}>
+        <FaUser  className={css.svg} />
+         <span className={css.text_name}>{name}</span>
+      </div> 
+      <div className={css.container}>
+        <FaPhoneAlt className={css.svg} />
+        <span className={css.text_number}>{number}</span>
+      </div>
       <div className={css.button_container}>
                <Button colorScheme='yellow'  className={css.button}
                type='button' onClick={handleDelete}>Delete</Button>

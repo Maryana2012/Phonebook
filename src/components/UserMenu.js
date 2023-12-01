@@ -8,11 +8,12 @@ import css from './Navigation.module.css'
 export default function UserMenu(){
   const dispatch = useDispatch();
     const userEmail = useSelector(userEmailSelector)
+    
     return(
         <div className={css.nav}>
           <NavLink to='/profile' style={({isActive})=>{return{color: isActive?'blue':'black'}}}><span className={css.nav_text}>Profile</span></NavLink>
           <span className={css.user_menu_text}>{userEmail}</span>
-          <Button colorScheme='yellow'  size='md'
+          <Button colorScheme='yellow'  size='md' className={css.button}
           type="button" onClick={()=>{dispatch(logOut())}}>Log Out</Button>
         </div>
     )

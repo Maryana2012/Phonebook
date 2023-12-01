@@ -1,13 +1,16 @@
 .item{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     width: 200px;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     background-color:rgb(245, 242, 242);
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
 }
 .text_name{
     font-size: 18px;
@@ -19,6 +22,9 @@
 }
 .button_container{
  display: flex;
+ justify-content: space-between;
+ align-items: center;
+ /* margin: 0 auto; */
  margin-top: 10px;
 
 }
@@ -26,8 +32,22 @@
     width: 70px;
     height: 30px;
     font-size: 14px;
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
 }
 .button:last-child{
     margin-left: 5px;
    
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.svg{
+    display: inline;
+    margin-right: 10px;
 }

@@ -11,7 +11,10 @@
     font-size: 18px;
     font-weight: 700;
 }
-
+.link:hover,
+.link:focus{
+   
+}
 .nav_box{
    display: flex;
    justify-content: space-around;
@@ -21,5 +24,9 @@
 .user_menu_text{
     font-size: 16px;
     font-weight: 700;
-    /* color: blue; */
+}
+.button{
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
 }

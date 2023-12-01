@@ -6,8 +6,17 @@
     color: blue;
 }
 .form__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background-color: azure;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color:rgb(245, 242, 242);
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
     width: 500px;
     margin: 0 auto;
 }
@@ -34,6 +43,9 @@
     font-weight: 700; 
     width: 80px;
 }
-.button_add {
-    margin-left: 190px;
+.button{
+    width: 80px;
+    box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
+    -moz-box-shadow: 7px 10px 30px -2px rgba(0,0,0,0.74);
 }
