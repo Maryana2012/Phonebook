@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 
 // const BASE_URL = 'http://localhost:8000/users/'
-const BASE_URL = 'https://phonebook-backend-q6eg.onrender.com'
+const BASE_URL = 'https://phonebook-backend-q6eg.onrender.com/users'
 const token ={
     set(token){
         axios.defaults.headers.common.Authorization=`Bearer ${token}` 
@@ -18,6 +18,8 @@ export const registration = createAsyncThunk('/auth/register',
 async({name, email, password}, thunkAPI)=>{
     try{
        const {data} = await axios.post(`${BASE_URL}/signup`, {name, email, password});
+    // const {data} =  await axios.post(`https://phonebook-backend-q6eg.onrender.com/signup`, {name, email, password});
+    //    console.log(data)
        token.set(data.token)
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message);
