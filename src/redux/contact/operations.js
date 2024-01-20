@@ -2,7 +2,8 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 
-const BASE_URL = 'http://localhost:8000'
+// const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'https://phonebook-backend-q6eg.onrender.com'
 
 export const fetchContacts = createAsyncThunk('contacts/fetchAll',
 async (_, thunkAPI)=> {

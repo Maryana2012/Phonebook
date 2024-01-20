@@ -2,7 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from 'react-toastify';
 
-const BASE_URL = 'http://localhost:8000/users/'
+// const BASE_URL = 'http://localhost:8000/users/'
+const BASE_URL = 'https://phonebook-backend-q6eg.onrender.com'
 const token ={
     set(token){
         axios.defaults.headers.common.Authorization=`Bearer ${token}` 
