@@ -18,8 +18,6 @@ export const registration = createAsyncThunk('/auth/register',
 async({name, email, password}, thunkAPI)=>{
     try{
        const {data} = await axios.post(`${BASE_URL}/signup`, {name, email, password});
-    // const {data} =  await axios.post(`https://phonebook-backend-q6eg.onrender.com/signup`, {name, email, password});
-    //    console.log(data)
        token.set(data.token)
        return data;
     } catch (error){ thunkAPI.rejectWithValue(error.message);
