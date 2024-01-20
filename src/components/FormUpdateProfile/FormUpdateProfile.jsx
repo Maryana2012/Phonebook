@@ -56,7 +56,7 @@ const FormUpdateProfile = ({onClose}) =>{
         <form className={css.form__container} 
         onSubmit={handleUpdate}
         >
-        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `http://localhost:8000/${user.avatarURL}`} alt={user.name} className={css.avatar} width='150' height='150'/>
+        <img src={user.avatarURL.includes('gravatar') ? user.avatarURL : `https://phonebook-backend-q6eg.onrender.com/${user.avatarURL}`} alt={user.name} className={css.avatar} width='150' height='150'/>
         <input type="file" onChange={handleChange} className={css.input_file} />
        
         <label className={css.label}><span className={css.label__form}>Name</span></label>
