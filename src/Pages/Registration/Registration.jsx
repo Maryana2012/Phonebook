@@ -6,12 +6,12 @@ import css from '../../components/FormAuth/FormAuth.module.css'
 
 export default function Registration(){
     const dispatch = useDispatch();
-    return(<>
+    return(<main className={css.main}>
       <h2 className={css.title}>Registration</h2>
       <FormAuth 
       onSubmit ={(formData)=> dispatch(registration(formData))}
       buttonText="Sign Up"
       isRegistration={true}/>
-    </>
+    </main>
     )
 }

@@ -20,7 +20,7 @@ export default function PhoneBook() {
   },[dispatch])
 
   return (
-  <>
+  <main className={css.main}>
  
   <div className={css.container}>
     <h2 className={css.title}>Add new contact</h2>
@@ -34,6 +34,6 @@ export default function PhoneBook() {
     {contact &&  <ContactList /> }
   </div>
     
-    </>
+    </main>
     )
 }

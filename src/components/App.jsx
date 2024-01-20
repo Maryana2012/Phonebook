@@ -12,8 +12,6 @@ const LoginPage = lazy(()=>import('../Pages/Login/Login'));
 const RegistrationPage = lazy(()=>import('../Pages/Registration/Registration'));
 const ContactsPage = lazy(()=>import('../Pages/PhoneBook/PhoneBook'));
 const ProfilePage = lazy(()=>import('../Pages/Profile/Profile'));
-// const UpdateProfilePage = lazy(()=>import('../Pages/UploadProfile/UpdateProfile'))
-
 
 export default function App(){
 

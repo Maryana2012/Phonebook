@@ -8,9 +8,9 @@ import css from '../Navigation.module.css'
 export default function Header(){
    const isLoggedIn = useSelector(isLoggedInSelector);
     return(
-        <nav className={css.nav_box}>
+        <header className={css.nav_box}>
            <Navigation/>
            {isLoggedIn ? <UserMenu/> :  <AuthNav/>}
-        </nav>
+        </header>
     )
 }
