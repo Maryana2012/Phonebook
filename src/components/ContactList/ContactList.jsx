@@ -8,7 +8,9 @@ export default function ContactList() {
   const filtered = useSelector(filterSelector)
   const contact = useSelector(contactsSelector);
  
-  const filteredContacts=contact.filter(el=>el.name.toLowerCase().includes(filtered.toLowerCase()))
+  const filteredContacts=contact
+  .filter(el=>el.name.toLowerCase().includes(filtered.toLowerCase()))
+  .sort((a,b)=>a.name.localeCompare(b.name))
     
   return (<ul className={css.list}>
              {filteredContacts.map(element =>  <Contact key={element._id}
